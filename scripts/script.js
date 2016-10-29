@@ -1,15 +1,24 @@
-$(document).ready(function() {
-	function grid(input) {
-		if(input =< 128){
-			for(i = 0, i < input, i++){
-				for(j = 0, j < input, j++){
-					//code to add a single div which will iterate to input
-					//double check this is how to append inside the container div
-					$(#sketch).append("<div class="etch"></div>");
-				}
-			}
-		} else {
-			// code to display that input value was too high.
+function grid(size) {
+	$('#sketch').html('<br>');
+	if(size <= 128){
+		console.log(size);
+		for(var i = 0; i < size; i++) {
+			$('#sketch').append('<div class="row"></div>')
 		}
-	}
-})
+		for(var j = 0; j < size; j++){
+				//code to add a single div which will iterate to input
+				$('.row').append('<div class="cell"></div>');
+		}
+	} else {
+		// code to display that input value was too high.
+		console.log(size);
+		} 
+};
+
+
+$(document).ready(function() {
+	$('#gridrender').click(function() {
+		var gdsize = $('#gridsize').val();
+		grid(gdsize);
+	});
+});
