@@ -1,8 +1,17 @@
-.row {
+#toolbar {
+	display: inline-block;
+}
+#toolbar p {
+	display: inline-block;
+}
+.col {
 	display: inline-block;
 }
 .cell {
 	height: 20px;
 	width: 20px;
-	background-color: #000;
+	background-color: #d3d3d3;
+}
+.blk {
+	background-color: #000000;
 }
