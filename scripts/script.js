@@ -1,7 +1,7 @@
 function grid(size) {
 	$('#sketch').html('<br>');
+	var cellSize = 560/size;
 	if(size <= 65){
-		console.log(size);
 		for(var i = 0; i < size; i++) {
 			$('#sketch').append('<div class="col"></div>')
 		}
@@ -13,6 +13,7 @@ function grid(size) {
 		// code to display that input value was too high.
 		console.log(size);
 		}; 
+	$('.cell').css({'height' : cellSize +'px', 'width': cellSize + 'px'});
 	$('.cell').mouseenter(function(){
 		$(this).addClass('blk');
 	});
