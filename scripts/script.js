@@ -1,5 +1,8 @@
+// Draws grid based on input size.
 function grid(size) {
+	// Clears grid to give us a fresh start.
 	$('#sketch').html('<br>');
+	// Style var to differentiate between different modes.
 	var style = 'default';
 	var cellSize = 560/size;
 	if(size <= 128 && size > 0){
@@ -20,7 +23,7 @@ function grid(size) {
 		alert('Please enter a value between 1 and 128.');
 		}; 
 	$('.cell').css({'height' : cellSize +'px', 'width': cellSize + 'px'});
-
+	//Sets the style.
 	$('#color').click(function(){
 		style = 'color';
 	});
@@ -31,6 +34,7 @@ function grid(size) {
 	$('#default').click(function(){
 		style = 'default';
 	})
+	// The hover effect code.
 	$('.cell').mouseenter(function(){
 		if(style === 'default'){
 			$(this).css({'background-color': '#000000'});
