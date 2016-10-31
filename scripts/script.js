@@ -1,14 +1,8 @@
 function grid(size) {
 	$('#sketch').html('<br>');
 	var style = 'default';
-	$('#color').click(function(){
-		style = 'color';
-	});
-	$('#default').click(function(){
-		style = 'default';
-	})
 	var cellSize = 560/size;
-	if(size <= 128){
+	if(size <= 128 && size > 0){
 		for(var i = 0; i < size; i++) {
 			$('#sketch').append('<div class="col"></div>')
 		}
@@ -23,14 +17,31 @@ function grid(size) {
 	}
 	} else {
 		// code to display that input value was too high.
-		console.log(size);
+		alert('Please enter a value between 1 and 128.');
 		}; 
 	$('.cell').css({'height' : cellSize +'px', 'width': cellSize + 'px'});
+
+	$('#color').click(function(){
+		style = 'color';
+	});
+	$('#darken').click(function(){
+		style = 'darken';
+		$('.cell').css({'opacity': '0', 'background-color': '#000000'})
+	})
+	$('#default').click(function(){
+		style = 'default';
+	})
 	$('.cell').mouseenter(function(){
 		if(style === 'default'){
 			$(this).css({'background-color': '#000000'});
 		} else if(style === 'color'){
 			$(this).css({'background-color': randomColor()})
+		} else if(style === 'darken'){
+			var opacity = parseFloat($(this).css("opacity"));
+			if(opacity < 1){
+				opacity += 0.1;
+				$(this).css('opacity', opacity);
+			}
 		}
 	});
 };
