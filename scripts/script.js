@@ -55,7 +55,7 @@ $(document).ready(function() {
 		grid(gdsize);
 	});
 	$('#clear').click(function(){
-		$('#sketch').find('div').removeClass('blk');
+		$('#sketch').find('div').css({'background-color': '#d3d3d3'});
 	});
 	$('#gridcheck').prop("checked", false);
 	$('#gridcheck').change(function(){
